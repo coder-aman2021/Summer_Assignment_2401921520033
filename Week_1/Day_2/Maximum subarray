@@ -1,0 +1,31 @@
+//1. Maximum subarray problem
+import java.util.* ;
+class Main {
+    public static int maxsubarray(int nums[]){
+        int currsum = 0 ;
+        int maxsum = Integer.MIN_VALUE ;
+        for(int i = 0 ; i<nums.length ;i++){
+            currsum += nums[i] ;
+            maxsum = Math.max(maxsum , currsum) ;
+            if(currsum<0)
+            currsum = 0 ;
+        }
+        return maxsum ;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter the size of an array");
+        int n = sc.nextInt() ;
+        int nums[] = new int[n] ;
+        for(int i = 0 ; i<n ; i++){
+            nums[i] = sc.nextInt();
+        }
+        System.out.println("Input array is..");
+        for(int i = 0 ; i<nums.length ; i++){
+            System.out.print(nums[i]+", ") ;
+        }
+        System.out.println() ;
+        System.out.print("maximum sum of subarray is"+" "+ maxsubarray(nums)) ;
+        
+    }
+}
