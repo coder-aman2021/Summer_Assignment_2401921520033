@@ -1,0 +1,40 @@
+// 3. maximum average subarray 1 
+import java.util.* ;
+class Main {
+    public static double findMaxAverage(int nums[] , int k){
+     int currsum = 0 ;
+     int windowsum = 0 ;
+     for(int i = 0 ; i<k ; i++){
+         windowsum += nums[i] ;
+     }
+    
+     int maxsum = windowsum ;
+     for(int i = k ; i<nums.length ; i++){
+         windowsum = windowsum - nums[i-k] + nums[i] ;
+         currsum = windowsum ;
+         maxsum = Math.max(maxsum , currsum) ;
+         
+     }
+     return (double)maxsum/k ;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter the size of an array");
+        int n = sc.nextInt() ;
+        int nums[] = new int[n] ;
+        for(int i = 0 ; i<n ; i++){
+            nums[i] = sc.nextInt();
+        }
+        System.out.println("Input array is..");
+        for(int i = 0 ; i<nums.length ; i++){
+            System.out.print(nums[i]+", ") ;
+        }
+        System.out.println() ;
+        System.out.println("enter the target integer") ;
+        int k = sc.nextInt() ;
+        
+        System.out.println() ;
+        System.out.print("the max average sum of given array ="+" "+findMaxAverage(nums , k)) ;
+        
+    }
+}
