@@ -1,0 +1,43 @@
+//1. diagonal sum problem
+import java.util.Scanner;
+
+public class diagonal {
+     public static int diagonalSum(int mat[][]){
+        int sum  = 0 ;
+        int m = mat.length ;
+        int n = mat[0].length ;
+        for(int i = 0 ; i<m ; i++){
+              for(int j = 0 ; j<n; j++){ 
+                 if(i==j)
+                 sum += mat[i][j] ;
+                 else if(i+j == n-1)
+                 sum += mat[i][j] ;
+           }
+           }
+           return sum ;
+    }
+    public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in) ;
+       System.out.println("Enter the no. of row :");
+       int m = sc.nextInt() ;
+        System.out.println("Enter the no. of col :");
+          int n = sc.nextInt() ;
+          int mat[][] = new int[m][n] ;
+         
+           System.out.println("Enter the element in the 2D array :");
+           for(int i = 0 ; i<m ; i++){
+              for(int j = 0 ; j<n; j++){ 
+                   mat[i][j] = sc.nextInt() ;
+           }
+           }
+    System.out.println("The input 2D matrix is:");
+     for(int i = 0 ; i<m ; i++){
+              for(int j = 0 ; j<n; j++){ 
+                  System.out.print(mat[i][j]+" ") ;
+           }
+         System.out.println();
+  }
+  System.out.println("the sum of both diagonal is:"+diagonalSum(mat));
+    }
+    
+}
