@@ -1,0 +1,70 @@
+// 3. Print Spiral Matrix
+import java.util.Scanner;
+import java.util.* ;
+public class diagonal {
+     public static List<Integer> spiralOrder(int mat[][] ){
+        List<Integer> res = new ArrayList<>() ;
+        int rowbegin = 0 ;
+        int rowend = mat.length - 1 ;
+        int colbegin = 0 ;
+        int colend = mat[0].length -1 ;
+        if(mat.length==0)
+            return res ;
+        while(rowbegin<=rowend && colbegin<=colend){
+            for(int j = colbegin ;j<=colend ; j++){
+                res.add(mat[rowbegin][j]);
+            }
+            rowbegin++ ;
+        
+       for(int j = rowbegin ; j<=rowend ; j++){
+        res.add(mat[j][colend]) ;
+       }
+       colend-- ;
+       if(rowbegin<=rowend){
+        for(int j = colend ; j>=colbegin ; j--){
+            res.add(mat[rowend][j]) ;
+        }
+        rowend-- ;
+       }
+       
+       if(colbegin<=colend){
+        for(int j =rowend ; j>=rowbegin ; j--){
+            res.add(mat[j][colbegin]) ;
+        }
+        colbegin++;
+       }
+    }
+
+     return res ;
+     
+      
+    }
+
+    public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in) ;
+       System.out.println("Enter the no. of row :");
+       int m = sc.nextInt() ;
+        System.out.println("Enter the no. of col :");
+          int n = sc.nextInt() ;
+          int mat[][] = new int[m][n] ;
+         
+           System.out.println("Enter the element in the 2D array :");
+           for(int i = 0 ; i<m ; i++){
+              for(int j = 0 ; j<n; j++){ 
+                   mat[i][j] = sc.nextInt() ;
+           }
+           }
+    System.out.println("The input 2D matrix is:");
+     for(int i = 0 ; i<m ; i++){
+              for(int j = 0 ; j<n; j++){ 
+                  System.out.print(mat[i][j]+" ") ;
+           }
+           System.out.println();
+        }
+         System.out.println();
+         System.out.println(spiralOrder(mat));
+  }
+  
+    }
+    
+
