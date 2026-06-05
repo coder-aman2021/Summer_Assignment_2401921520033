@@ -1,0 +1,33 @@
+// 1. valid Palindrome
+import java.util.Scanner;
+import java.util.* ;
+public class diagonal {
+     public static boolean isPallindrome(String s){
+      int i = 0 ; 
+        int j = s.length() - 1;
+        while(i<j){
+            while(i<j && !Character.isLetterOrDigit(s.charAt(i))){
+                i++ ;
+            }
+            while(i<j && !Character.isLetterOrDigit(s.charAt(j))){
+                j-- ;
+            }
+            char ch1 = s.charAt(i) ;
+            char ch2 = s.charAt(j) ;
+            if(Character.toLowerCase(ch1)!=Character.toLowerCase(ch2))
+            return false ;
+            i++ ;
+            j-- ;
+        }
+        return true ;
+      
+    }
+
+    public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in) ;
+       System.out.println("Enter the input string :");
+       String s  = sc.nextLine() ;
+       System.out.println("the input string is :"+s);
+       System.out.println(isPallindrome(s));
+    }
+}
