@@ -1,0 +1,73 @@
+// TOPIC is Interface
+interface LibraryUser{
+    String  registerAccount() ;
+    String requestBook() ;
+}
+ abstract class user implements LibraryUser {
+    String bookType ;
+    int age ;
+ public user(int age , String bookType ){
+   this.age = age ;
+   this.bookType = bookType ;
+   
+ }
+ 
+}
+class KidUsers extends user{
+    
+    public KidUsers(int age , String bookType) {
+        super(age , bookType);
+        
+    }
+    public  String  registerAccount(){
+         if(age<12){
+            return"You have successfully registered under a Kids Account";
+         }
+     else
+        return "Sorry, Age must be less than 12 to register as a kid";
+    }
+    public String requestBook(){
+     if(bookType.equalsIgnoreCase("Kids")){
+        return "Book Issued successfully, please return the book within 10 days" ;
+     }
+     else
+        return "Oops, you are allowed to take only kids books" ;
+    }
+ 
+   
+   
+    }
+
+class AdultUser extends user{
+   
+      public AdultUser(int age , String bookType) {
+        super(age , bookType);
+        
+    }
+    public  String  registerAccount() {
+        if(age>12){
+            return "You have successfully registered under an Adult Account" ;
+        }
+        else
+            return "Sorry, Age must be greater than 12 to register as an adult" ;
+    }
+    public  String requestBook(){
+    if(bookType.equalsIgnoreCase("Fiction")){
+        return "Book Issued successfully, please return the book within 7 days";
+
+    }
+    else
+        return "Oops, you are allowed to take only adult Fiction books" ;
+    }
+}
+public class cdcoopsquestion {
+    public static void main(String[] args) {
+        KidUsers s1 = new KidUsers(18,"Fiction");
+        AdultUser s2 = new AdultUser(23,"Fiction");
+        System.out.println(s1.registerAccount());
+        System.out.println(s1.requestBook());
+        System.out.println(s2.registerAccount());
+        System.out.println(s2.requestBook());
+    }
+    
+}
