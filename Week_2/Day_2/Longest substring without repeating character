@@ -1,0 +1,25 @@
+//1. Longest substring without repeating character
+import java.util.* ;
+class Main {
+    public static int lengthOfLongestSubstring(String s) {
+        HashSet<Character> set = new HashSet<>() ; 
+        int i = 0 ; 
+        int maxlen = 0 ; 
+        for(int j = 0 ; j<s.length() ; j++){
+            while(set.contains(s.charAt(j))){
+              set.remove(s.charAt(i)) ; i++ ; 
+                 } 
+            set.add(s.charAt(j)) ;
+            maxlen = Math.max(maxlen , j - i + 1) ; 
+            
+        } 
+        return maxlen ;
+    }
+    public static void main(String[] args) {
+    
+        Scanner sc = new Scanner(System.in) ;
+        System.out.println("Enter the input String") ; 
+        String s = sc.nextLine() ; 
+        System.out.println(lengthOfLongestSubstring(s)) ;
+    }
+}
