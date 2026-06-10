@@ -1,0 +1,26 @@
+//2 . Repeated substring Pattern
+import java.util.* ;
+class Main {
+    public static  boolean repeatedSubstringPattern(String s) {
+      int n = s.length();
+      for(int  i = 1 ; i<=n/2 ; i++){
+        if(n%i==0){
+            String sub = s.substring(0 , i ) ;
+              StringBuilder sb = new StringBuilder();
+           for(int k = 0 ; k<n/i ;k++){
+            sb.append(sub) ;
+           }
+            if (sb.toString().equals(s)) {
+                    return true;
+                }
+        }
+      }
+       return false ; 
+     }
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in) ;
+        System.out.println("Enter first input String") ;
+        String s = sc.nextLine() ;
+       System.out.println(repeatedSubstringPattern(s)) ;
+    } 
+}
