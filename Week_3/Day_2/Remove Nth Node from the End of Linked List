@@ -1,0 +1,24 @@
+//2. Remove Nth Node from the End of Linked List
+Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int sz = 0 ;
+        ListNode temp = head ;
+        while(temp!=null){
+            temp = temp.next ;
+            sz++ ;
+        }
+        int i = 1 ; 
+       ListNode prev = head ;
+       if(n==sz){
+        return head.next ;
+        
+       }
+        while(i<sz-n){
+         prev = prev.next ;
+         i++ ;
+        }
+        prev.next = prev.next.next ;
+        
+        return head ;
+    }
+}
