@@ -1,0 +1,67 @@
+import java.util.Random;
+
+
+abstract class Compartment{
+    public abstract String notice() ;
+}
+class FirstClass extends Compartment{
+
+    
+    public String notice() {
+        
+        return "Make peace and Silence .this is a firstAc class";
+    }
+    
+}
+class Ladies extends Compartment{
+
+    
+    public String notice() {
+        
+        return "this is a Ladies coach only Ladies are allowed";
+    }
+      
+}
+class General extends Compartment{
+
+    
+    public String notice() {
+        
+        return "this is a General class please sit with carefully";
+    }
+    
+}
+class Luggage extends Compartment{
+
+    
+    public String notice() {
+    
+        return "Only Luggage are allowed ";
+    }
+    
+}
+public class TestCompartment {
+    public static void main(String[] args) {
+        Compartment[] com  = new Compartment[10] ;
+// this is a Random in built class in java which generate random values so we use here random class to generate random values
+        Random r  = new Random() ;
+        for(int i = 0 ; i <10 ; i++){
+            int n = r.nextInt(4) + 1 ;
+            if(n==1){
+                com[i] = new FirstClass() ;
+            }
+            else if(n==2){
+                com[i] = new Ladies() ;
+            }
+            else if(n==3){
+                com[i] = new General() ;
+            }
+            else
+                com[i] = new Luggage() ;
+
+            System.out.println(com[i].notice());
+        }
+        
+    }
+    
+}
