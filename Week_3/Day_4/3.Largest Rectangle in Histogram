@@ -1,0 +1,24 @@
+//3. Largest Rectangle in Histogram
+import java.util.* ;
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        Stack<Integer>s  = new Stack<>() ;
+        int maxarea  = 0 ;
+        for(int i  = 0 ; i<=heights.length ; i++){
+            int currhi = (i==heights.length)?0:heights[i] ;
+            while(!s.isEmpty()&&currhi<heights[s.peek()]){
+                int hi = heights[s.pop()];
+                int wi ;
+                if(s.isEmpty())
+                 wi = i ;
+                else
+                wi = i - s.peek() - 1 ;
+                 maxarea = Math.max(maxarea , hi*wi) ;
+            
+            }
+            
+                s.push(i);
+        }
+        return maxarea ;
+    }
+}
