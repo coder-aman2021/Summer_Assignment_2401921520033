@@ -1,0 +1,34 @@
+//3 ZigZag level order traversal
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    
+        Queue<TreeNode> q  = new LinkedList<>() ;
+        List<List<Integer>>result = new ArrayList<>() ;
+         if(root==null)
+        return result ;
+        q.add(root) ;
+        boolean lefttoright =  true ;
+        while(!q.isEmpty()){
+            int size = q.size() ;
+            List<Integer> level = new LinkedList<>() ;
+            for(int i = 0 ; i<size ; i++){
+             TreeNode currnode = q.remove() ;
+            if(lefttoright){
+                level.addLast(currnode.val) ;
+            }
+            else{
+                level.addFirst(currnode.val) ;
+            }
+             if(currnode.left!=null)
+             q.add(currnode.left) ;
+             if(currnode.right!=null)
+             q.add(currnode.right) ;
+            
+            }
+           result.add(level) ;
+             lefttoright = !lefttoright ;
+        }
+        return result ;
+        
+    }
+}
