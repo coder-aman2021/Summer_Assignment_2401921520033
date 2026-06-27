@@ -1,4 +1,5 @@
-// Symmetric trees
+
+//1. Construct a Binary trees from inorder and preorder traversal
 class Solution {
       int preIndex = 0;
       public TreeNode build(int[] preorder, int[] inorder, int start, int end){
